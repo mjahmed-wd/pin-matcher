@@ -4,7 +4,7 @@
 //     generateNumber = (generateNumber * 10000).toString().split(".")
 //     if (generateNumber[0].length == 4) {
 //         var random = generateNumber[0]
-//         console.log(random)
+//         console.log(random, "random no for console log-")
 //         return random
 //     } else {
 //         randomNumber();
@@ -67,5 +67,6 @@ function submit() {
     console.log("count", count);
     if (count == 0) {
         document.getElementById("submit").disabled = true;
+        document.getElementById('actionCount').innerText = "You have tried 3 times, You can't submit again";
     }
 }
