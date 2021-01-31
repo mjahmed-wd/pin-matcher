@@ -51,10 +51,15 @@ for (let i = 0; i < button.length; i++) {
     })
 }
 
+var button = document.getElementById("submit"),
+    count = 3;
+
 function submit() {
     if (document.getElementById('pin-input').value == document.getElementById('generatedPin').value && document.getElementById('pin-input').value !== "") {
+        hideNotification()
         document.getElementById('matched').style.display = "block";
     } else {
+        hideNotification()
         document.getElementById('tryAgain').style.display = "block";
     }
     count = count - 1;
@@ -64,13 +69,3 @@ function submit() {
         document.getElementById("submit").disabled = true;
     }
 }
-var button = document.getElementById("submit"),
-    count = 3;
-// button.onclick = function() {
-//     count = count - 1;
-//     document.getElementById('actionCount').innerText = count + " " + "try left";
-//     console.log("count", count);
-//     if (count == 0) {
-//         document.getElementById("submit").disabled = true;
-//     }
-// };
