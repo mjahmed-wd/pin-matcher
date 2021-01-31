@@ -1,16 +1,3 @@
-// function randomNumber() {
-//     var generateNumber = Math.random()
-//     console.log(generateNumber)
-//     generateNumber = (generateNumber * 10000).toString().split(".")
-//     if (generateNumber[0].length == 4) {
-//         var random = generateNumber[0]
-//         console.log(random, "random no for console log-")
-//         return random
-//     } else {
-//         randomNumber();
-//     }
-// }
-// console.log(randomNumber())
 hideNotification()
 
 function hideNotification() {
@@ -20,10 +7,8 @@ function hideNotification() {
 
 function randomNumber() {
     var generateNumber = Math.random()
-        // console.log(generateNumber)
     var pin = parseInt(generateNumber * 10000).toString()
     if (pin.length == 4) {
-        // console.log("pin", pin.length)
         document.getElementById('generatedPin').value = pin
     } else {
         randomNumber()
@@ -31,7 +16,6 @@ function randomNumber() {
     hideNotification()
     input.value = ""
     document.getElementById("submit").disabled = false;
-    count = 3
     document.getElementById('actionCount').innerText = count + " " + "try left";
 
 }
@@ -58,13 +42,13 @@ function submit() {
     if (document.getElementById('pin-input').value == document.getElementById('generatedPin').value && document.getElementById('pin-input').value !== "") {
         hideNotification()
         document.getElementById('matched').style.display = "block";
+        document.getElementById('actionCount').style.display = "none";
     } else {
         hideNotification()
         document.getElementById('tryAgain').style.display = "block";
     }
     count = count - 1;
     document.getElementById('actionCount').innerText = count + " " + "try left";
-    console.log("count", count);
     if (count == 0) {
         document.getElementById("submit").disabled = true;
         document.getElementById('actionCount').innerText = "You have tried 3 times, You can't submit again";
